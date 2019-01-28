@@ -12,7 +12,7 @@ export default class Store extends React.Component {
 
 	render() {
 		return React.children.map(this.props.children, (child) => {
-			return React.cloneElement()
+			return React.cloneElement(child, { ...this.state });
 		});
 	}
 
