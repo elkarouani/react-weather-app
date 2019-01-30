@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import "./sass/app.scss";
+import TopSection from "./components/top";
 
 class App extends Component {
   render() {
@@ -9,7 +10,7 @@ class App extends Component {
       <div className="app-container">
       	  	<div className="main-container">
       	  		<div className="top-section">
-      	  			TOP
+      	  			<TopSection />
       			</div>
       			<div className="bottom-section">
       	  			BOTTOM
