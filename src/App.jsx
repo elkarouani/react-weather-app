@@ -8,7 +8,12 @@ class App extends Component {
     return (
       <div className="app-container">
       	  	<div className="main-container">
-      	  		Main Container
+      	  		<div className="top-section">
+      	  			TOP
+      			</div>
+      			<div className="bottom-section">
+      	  			BOTTOM
+      			</div>
       		</div>
       </div>
     );
