@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.scss";
 
 export default class TopSection extends React.Component {
 	constructor(props) {
@@ -7,6 +8,10 @@ export default class TopSection extends React.Component {
 	}
 
 	render() {
-		return <div>TOP SECTION</div>;
+		return (
+			<div className="top-container">
+				<div className="title">Weather Up</div>
+			</div>
+		);
 	}
 }
