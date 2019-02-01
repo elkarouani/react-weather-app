@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import "./sass/app.scss";
 import TopSection from "./components/top/index.jsx";
+import BottomSection from "./components/bottom/index.jsx";
 
 class App extends Component {
   render() {
@@ -12,7 +13,7 @@ class App extends Component {
       	  			<TopSection />
       			</div>
       			<div className="bottom-section">
-      	  			BOTTOM
+      	  			<BottomSection />
       			</div>
       		</div>
       </div>
