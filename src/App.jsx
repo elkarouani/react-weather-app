@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import "./sass/app.scss";
 import TopSection from "./components/top/index.jsx";
