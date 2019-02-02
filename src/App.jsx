@@ -52,7 +52,7 @@ class App extends Component {
               {isLoading && <h3>Loading Weather...</h3>}
               {!isLoading && (
                 <div className="top-section">
-                  <TopSection location={cityName} temp_c={temp_c} isday={isDay} text={text} iconurl={iconURL} eventEmitter={this.propsEmitter}/>
+                  <TopSection location={cityName} temp_c={temp_c} isday={isDay} text={text} iconurl={iconURL} eventEmitter={this.props.eventEmitter}/>
                 </div>
               )}
       			<div className="bottom-section">
