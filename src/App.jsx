@@ -19,6 +19,8 @@ class App extends Component {
 
   componentDidMount() {
     const { cityName, forcastDays } = this.state;
+    const { eventEmitter } = this.props;
+
     const URL = `https://api.apixu.com/v1/forecast.json?key=${WEATHER_KEY}&q=${cityName}&days=${forcastDays}`;
 
     axios
@@ -36,6 +38,10 @@ class App extends Component {
     }).catch((err) => {
       if(err) console.log('Cannot fetch Weather Data from API, ', err);
     });
+
+    eventEmitter.on("updateWeather", (data) => {
+      console.log("locationName: ", data);
+    })
   }
 
   render() {
@@ -46,7 +52,7 @@ class App extends Component {
               {isLoading && <h3>Loading Weather...</h3>}
               {!isLoading && (
                 <div className="top-section">
-                  <TopSection location={cityName} temp_c={temp_c} isday={isDay} text={text} iconurl={iconURL} />
+                  <TopSection location={cityName} temp_c={temp_c} isday={isDay} text={text} iconurl={iconURL} eventEmitter={this.propsEmitter}/>
                 </div>
               )}
       			<div className="bottom-section">
