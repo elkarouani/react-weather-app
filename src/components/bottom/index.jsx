@@ -10,7 +10,6 @@ export default class BottomSection extends React.Component {
 
 	render() {
 		const { forecastdays } = this.props;
-		console.log(forecastdays);
 		return (
 			<div className="bottom-container">
 				<div className="inner-container">
