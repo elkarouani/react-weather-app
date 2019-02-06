@@ -16,14 +16,15 @@ export default class TopSection extends React.Component {
 	}
 
 	onLocationNameChange(e) {
-		this.setState({ locationName: e.target.value });
+		this.setState({ locationName: e.target.value});
 	}
 
 	onSelectCity() {
 		const { locationName } = this.state;
 		const { eventEmitter } = this.props;
-
+		
 		eventEmitter.emit("updateWeather", locationName);
+		this.setState({ isSelectLocationOpen: false  });
 	}
 
 	render() {

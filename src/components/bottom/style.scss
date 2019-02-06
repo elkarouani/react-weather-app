@@ -4,3 +4,16 @@
 	background: linear-gradient(180deg, #6abeca 0%, rgba(58, 98, 104, .57) 100%), url("../../resources/images/sunny-weather.jpeg") center no-repeat;
 	background-size: cover;
 }
+
+.forcastday-container {
+	.image {
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.text {
+
+	}
+}
