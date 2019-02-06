@@ -12,14 +12,14 @@ class App extends Component {
     super(props);
     this.state = {
       cityName: "Marrakech",
-      forcastDays: 5, 
+      numforcastDays: 4, 
       isLoading: true
     };
   }
 
   updateWeather() {
-    const { cityName, forcastDays } = this.state;
-    const URL = `https://api.apixu.com/v1/forecast.json?key=${WEATHER_KEY}&q=${cityName}&days=${forcastDays}`;
+    const { cityName, numforcastDays } = this.state;
+    const URL = `https://api.apixu.com/v1/forecast.json?key=${WEATHER_KEY}&q=${cityName}&days=${numforcastDays}`;
 
     axios
     .get(URL)
@@ -31,7 +31,8 @@ class App extends Component {
         temp_c: data.current.temp_c,
         isDay: data.current.is_day,
         text: data.current.condition.text,
-        iconURL: data.current.condition.icon
+        iconURL: data.current.condition.icon,
+        forecastdays: data.forecast.forecastday
       });
     }).catch((err) => {
       if(err) console.log('Cannot fetch Weather Data from API, ', err);
@@ -50,7 +51,7 @@ class App extends Component {
   }
 
   render() {
-    const { isLoading, cityName, temp_c, isDay, text, iconURL } = this.state;
+    const { isLoading, cityName, temp_c, isDay, text, iconURL, forecastdays } = this.state;
     return (
       <div className="app-container">
       	  	<div className="main-container">
@@ -61,7 +62,7 @@ class App extends Component {
                 </div>
               )}
       			<div className="bottom-section">
-      	  			<BottomSection />
+      	  			<BottomSection forecastdays={forecastdays}/>
       			</div>
       		</div>
       </div>

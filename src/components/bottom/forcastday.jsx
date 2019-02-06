@@ -7,10 +7,12 @@ export default class Forcastday extends React.Component {
 	}
 
 	render() {
+		const { day } = this.props;
+		if (!day) return null;
 		return (
 			<div className="forcastday-container">
-				<div className="image"><img src={} alt="" /></div>
-				<div className="text"></div>
+				<div className="image"><img src={day.condition.icon} alt="" /></div>
+				<div className="text">{day.avgtemp_c}</div>
 			</div>
 		) 
 	}
