@@ -17,10 +17,8 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
+  updateWeather() {
     const { cityName, forcastDays } = this.state;
-    const { eventEmitter } = this.props;
-
     const URL = `https://api.apixu.com/v1/forecast.json?key=${WEATHER_KEY}&q=${cityName}&days=${forcastDays}`;
 
     axios
@@ -38,9 +36,16 @@ class App extends Component {
     }).catch((err) => {
       if(err) console.log('Cannot fetch Weather Data from API, ', err);
     });
+  }
+
+  componentDidMount() {
+    const { eventEmitter } = this.props;
+
+    this.updateWeather();
 
     eventEmitter.on("updateWeather", (data) => {
-      console.log("locationName: ", data);
+      this.setState({ cityName: data }, () => this.updateWeather());
+      // console.log("locationName: ", data);
     })
   }
 
